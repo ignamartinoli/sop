@@ -111,7 +111,7 @@ Es una combinación de los indicadores:
 
 - ~a~ :: muestra todos los procesos asociados con cualquier terminal
 - ~u~ :: muestra informacion detallada sobre los procesos, incluyendo el nombre del usuario propietario
-- ~x~ :: muestra procesos que no estxn asociados con ninguna terminal
+- ~x~ :: muestra procesos que no están asociados con ninguna terminal
 
 * ~pstree~
 
