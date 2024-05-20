@@ -1,0 +1,186 @@
+#+TITLE: Procesos
+#+AUTHOR: tano
+
+* Procesos
+
+Los procesos (o tareas) son instancias de programas en ejecución.
+
+Cada proceso tiene asociado un identificador llamado =PID=.
+
+** Clasificación
+
+Los procesos se pueden clasificar como:
+
+- Foreground :: o *primer plano*, son los procesos que tienen el control directo de una terminal, permitiendo que el usuario interactúe en tiempo real
+- Background :: o *segundo plano*, son los procesos que se ejecutan independientemente de la terminal, dejándola libre para aceptar otro comandos
+
+Para levantar un proceso en segundo plano hay que agregar el símbolo ~&~ después del comando (por ejemplo ~nano &~).
+
+* ~top~
+
+El comando ~top~ permite controlar los procesos y las estadísticas del uso de los recursos del sistema en tiempo real (por defecto cada 3 segundos).
+
+** Columnas
+
+- =PID= :: identificador de proceso (=Process ID=)
+- =USER= :: usuario dueño del proceso
+- =PR= :: prioridad del proceso (=Priority=)
+- =NI= :: valor de amabilidad del proceso (=Niceness=)
+- =VIRT= :: memoria virtual total usada por el proceso (=Virtual Memory=)
+- =RES= :: memoria física actualmente usada por el proceso (=Resident Memory=)
+- =SHR= :: memoria compartida usada por el proceso (=Shared=)
+- =S= :: estado del proceso (=State=)
+- =%CPU= :: porcentaje de CPU usado por el proceso
+- =%MEM= :: porcentaje de memoria física usada por el proceso
+- =TIME+= :: tiempo total de CPU utilizado por el proceso desde que inició
+- =COMMAND= :: comando que inició el proceso 
+
+** Opciones
+
+*** ~-d~
+
+Con la opción ~-d~ (/delay/, o /atraso/) podemos establecer el intervalo de actualización en segundos.
+
+#+begin_src shell
+top -d 5
+#+end_src
+
+*** ~-u~
+
+Con la opción ~-u~ (/user/ o /usuario/) podemos mostrar solo los procesos de un usuario específico.
+
+#+begin_src shell
+top -u alumno
+#+end_src
+
+*** ~-p~
+
+Con la opción ~-p~ (de /PID/) podemos ver uno o más procesos específicos por sus PIDs. 
+
+#+begin_src shell
+top -p 1234,5678
+#+end_src
+
+* Prioridades de procesos
+
+** Prioridad base
+
+Es un valor predeterminado que el sistema operativo Linux asigna a todos los procesos de usuario cuando se crean.
+
+** Amabilidad
+
+Representado por la columna =NI=, es un valor entre =-20= y =19= que el usuario puede ajustar para influir en cierta medida en la prioridad efectiva de un proceso.
+
+** Prioridad efectiva
+
+Representado por la columna =PR=, es un valor que determina cuánto tiempo de CPU recibe el proceso: valores más bajos indican mayor prioridad.
+
+Se calcula con la formula: =PR = 20 (prioridad base) + NI=.
+
+* Estados comunes
+
+Los códigos de estados comunes (que podemos encontrar en el comando ~top~) son:
+
+- =R= :: ejecutándose (=Running=)
+- =S= :: durmiendo (=Sleeping=)
+- =D= :: sueño ininterrumpible por operaciones de E/S (=Disk sleep=)
+- =Z= :: zombi (=Zombie=)
+- =T= :: suspendido (=Terminated=)
+- =I= :: inactivo (=Idle=) 
+
+* ~ps~
+
+El comando ~ps~ se utiliza para mostrar información sobre los procesos en ejecución en el sistema para ese instante.
+
+#+begin_src shell
+ps
+#+end_src
+
+#+RESULTS:
+|   PID | TTY |     TIME | CMD    |
+|  6391 | ?   | 00:00:00 | bash   |
+|  6392 | ?   | 00:00:00 | ps     |
+
+** Opciones
+
+*** ~-e~ o ~-A~
+
+Con la opción ~-e~ o ~-A~ (/all processes/ o /todos los procesos/) podemos ver todos los procesos del sistema
+
+#+begin_src shell
+ps -e
+#+end_src
+
+#+RESULTS:
+|   PID | TTY   |     TIME | CMD                               |         |    |
+|     1 | ?     | 00:00:01 | init                              |         |    |
+|     2 | ?     | 00:00:00 | kthreadd                          |         |    |
+| ...
+
+*** ~aux~
+
+Con la opción ~aux~ podemos ver todos los procesos con detalles adicionales, incluyendo procesos no asociados con una terminal.
+
+Es una combinación de los indicadores:
+
+- ~a~ :: muestra todos los procesos asociados con cualquier terminal
+- ~u~ :: muestra informacion detallada sobre los procesos, incluyendo el nombre del usuario propietario
+- ~x~ :: muestra procesos que no estxn asociados con ninguna terminal
+
+#+begin_src shell
+ps aux
+#+end_src
+
+* ~pstree~
+
+El comando ~pstree~ se usa para mostrar una representación jerárquica de los procesos en ejecución en el sistema.
+
+Esta representación se organiza en forma de un árbol, donde cada proceso se muestra como un nodo, y los procesos secundarios se muestran como subnodos debajo de sus procesos padres correspondientes.
+
+#+begin_src shell
+pstree
+#+end_src
+
+* ~kill~
+
+El comando ~kill~ se utiliza para enviar señales a procesos específicos, lo que puede resultar en la terminación de esos procesos, la modificación de su comportamiento o la ejecución de otras acciones según la señal enviada.
+
+** Señales
+
+Para ver los tipos de señales disponibles se puede utilizar la opción ~-l~ del comando.
+
+#+begin_src shell
+kill -l
+#+end_src
+
+#+RESULTS:
+| 1) SIGHUP       | 2) SIGINT       | 3) SIGQUIT      | 4) SIGILL       | 5) SIGTRAP      |
+| 6) SIGABRT      | 7) SIGBUS       | 8) SIGFPE       | 9) SIGKILL      | 10) SIGUSR1     |
+| 11) SIGSEGV     | 12) SIGUSR2     | 13) SIGPIPE     | 14) SIGALRM     | 15) SIGTERM     |
+| 16) SIGSTKFLT   | 17) SIGCHLD     | 18) SIGCONT     | 19) SIGSTOP     | 20) SIGTSTP     |
+| 21) SIGTTIN     | 22) SIGTTOU     | 23) SIGURG      | 24) SIGXCPU     | 25) SIGXFSZ     |
+| 26) SIGVTALRM   | 27) SIGPROF     | 28) SIGWINCH    | 29) SIGIO       | 30) SIGPWR      |
+| 31) SIGSYS      | 34) SIGRTMIN    | 35) SIGRTMIN+1  | 36) SIGRTMIN+2  | 37) SIGRTMIN+3  |
+| 38) SIGRTMIN+4  | 39) SIGRTMIN+5  | 40) SIGRTMIN+6  | 41) SIGRTMIN+7  | 42) SIGRTMIN+8  |
+| 43) SIGRTMIN+9  | 44) SIGRTMIN+10 | 45) SIGRTMIN+11 | 46) SIGRTMIN+12 | 47) SIGRTMIN+13 |
+| 48) SIGRTMIN+14 | 49) SIGRTMIN+15 | 50) SIGRTMAX-14 | 51) SIGRTMAX-13 | 52) SIGRTMAX-12 |
+| 53) SIGRTMAX-11 | 54) SIGRTMAX-10 | 55) SIGRTMAX-9  | 56) SIGRTMAX-8  | 57) SIGRTMAX-7  |
+| 58) SIGRTMAX-6  | 59) SIGRTMAX-5  | 60) SIGRTMAX-4  | 61) SIGRTMAX-3  | 62) SIGRTMAX-2  |
+| 63) SIGRTMAX-1  | 64) SIGRTMAX    |                 |                 |                 |
+
+Por defecto ~kill~ utiliza la señal =SIGTERM= (=15=) que permite al proceso una terminación ordenada.
+
+Además, las señales de relevancia para nosotros son:
+
+- =SIGINT= :: para interrumpir procesos (=2=)
+- =SIGKILL= :: para forzar la terminación de procesos (=9=)
+
+** Uso
+
+Para enviar una señal a un proceso, se debe utilizar la familia de opciones ~-<N>~ donde =N= es el número de proceso.
+
+Por ejemplo, para terminar abruptamente un proceso (por ejemplo con PID =1234=) con el comando =SIGKILL=, se utiliza como opción el número correspondiente a esa señal (=9=), y como argumento el PID del proceso:
+
+#+begin_src shell
+kill -9 1234
+#+end_src
