@@ -19,8 +19,8 @@ vi &
 #+END_SRC
 
 #+RESULTS:
-| [2] 31290
-| [2]  + suspended (tty output)  vi
+: [2] 31290
+: [2]  + suspended (tty output)  vi
 
 * ~top~
 
@@ -194,4 +194,4 @@ kill -9 31290
 #+end_src
 
 #+RESULTS:
-| [1]  + killed     vi
+: [1]  + killed     vi
