@@ -43,49 +43,23 @@ El comando ~top~ permite controlar los procesos y las estadísticas del uso de l
 - =TIME+= :: tiempo total de CPU utilizado por el proceso desde que inició
 - =COMMAND= :: comando que inició el proceso 
 
-** Opciones
+** Prioridades de procesos
 
-*** ~-d~
-
-Con la opción ~-d~ (/delay/, o /atraso/) podemos establecer el intervalo de actualización en segundos.
-
-#+begin_src shell
-top -d 5
-#+end_src
-
-*** ~-u~
-
-Con la opción ~-u~ (/user/ o /usuario/) podemos mostrar solo los procesos de un usuario específico.
-
-#+begin_src shell
-top -u alumno
-#+end_src
-
-*** ~-p~
-
-Con la opción ~-p~ (de /PID/) podemos ver uno o más procesos específicos por sus PIDs. 
-
-#+begin_src shell
-top -p 1234,5678
-#+end_src
-
-* Prioridades de procesos
-
-** Prioridad base
+*** Prioridad base
 
 Es un valor predeterminado que el sistema operativo Linux asigna a todos los procesos de usuario cuando se crean.
 
-** Amabilidad
+*** Amabilidad
 
 Representado por la columna =NI=, es un valor entre =-20= y =19= que el usuario puede ajustar para influir en cierta medida en la prioridad efectiva de un proceso.
 
-** Prioridad efectiva
+*** Prioridad efectiva
 
 Representado por la columna =PR=, es un valor que determina cuánto tiempo de CPU recibe el proceso: valores más bajos indican mayor prioridad.
 
 Se calcula con la formula: =PR = 20 (prioridad base) + NI=.
 
-* Estados comunes
+** Estados comunes
 
 Los códigos de estados comunes (que podemos encontrar en el comando ~top~) son:
 
