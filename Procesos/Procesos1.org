@@ -103,15 +103,15 @@ ps -e
 
 Con la opción ~aux~ podemos ver todos los procesos con detalles adicionales, incluyendo procesos no asociados con una terminal.
 
+#+begin_src shell
+ps aux
+#+end_src
+
 Es una combinación de los indicadores:
 
 - ~a~ :: muestra todos los procesos asociados con cualquier terminal
 - ~u~ :: muestra informacion detallada sobre los procesos, incluyendo el nombre del usuario propietario
 - ~x~ :: muestra procesos que no estxn asociados con ninguna terminal
-
-#+begin_src shell
-ps aux
-#+end_src
 
 * ~pstree~
 
