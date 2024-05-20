@@ -14,6 +14,10 @@ Los procesos se pueden clasificar como:
 - Foreground :: o *primer plano*, son los procesos que tienen el control directo de una terminal, permitiendo que el usuario interactúe en tiempo real
 - Background :: o *segundo plano*, son los procesos que se ejecutan independientemente de la terminal, dejándola libre para aceptar otro comandos
 
+- *Foreground*, o *primer plano*, son los procesos que tienen el control directo de una terminal, permitiendo que el usuario interactúe en tiempo real
+- *Background*, o *segundo plano*, son los procesos que se ejecutan independientemente de la terminal, dejándola libre para aceptar otro comandos
+
+
 Para levantar un proceso en segundo plano hay que agregar el símbolo ~&~ después del comando, por ejemplo:
 
 #+BEGIN_SRC shell
