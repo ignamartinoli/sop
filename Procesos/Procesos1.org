@@ -3,9 +3,9 @@
 
 * Procesos
 
-Los procesos (o tareas) son instancias de programas en ejecución.
+Los procesos (o *tareas*) son instancias de programas en ejecución.
 
-Cada proceso tiene asociado un identificador llamado =PID=.
+Cada proceso tiene asociado un identificador llamado *PID*.
 
 ** Clasificación
 
