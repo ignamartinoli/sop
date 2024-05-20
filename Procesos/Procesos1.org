@@ -1,8 +1,6 @@
 #+TITLE: Procesos
 #+AUTHOR: tano
 
-* Procesos
-
 Los procesos (o *tareas*) son instancias de programas en ejecución.
 
 Cada proceso tiene asociado un identificador llamado *PID*.
