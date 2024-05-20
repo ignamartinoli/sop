@@ -137,7 +137,7 @@ El comando ~pstree~ se usa para mostrar una representación jerárquica de los p
 
 Esta representación se organiza en forma de un árbol, donde cada proceso se muestra como un nodo, y los procesos secundarios se muestran como subnodos debajo de sus procesos padres correspondientes.
 
-#+begin_src bash
+#+begin_src shell
 pstree
 #+end_src
 
