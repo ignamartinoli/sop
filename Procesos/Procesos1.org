@@ -22,6 +22,8 @@ nano &
 
 El comando ~top~ permite controlar los procesos y las estadísticas del uso de los recursos del sistema en tiempo real (por defecto cada 3 segundos).
 
+[[file:top.png]]
+
 ** Columnas
 
 - =PID= :: identificador de proceso (=Process ID=)
