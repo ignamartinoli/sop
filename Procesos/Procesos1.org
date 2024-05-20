@@ -96,7 +96,7 @@ Los códigos de estados comunes (que podemos encontrar en el comando ~top~) son:
 
 El comando ~ps~ se utiliza para mostrar información sobre los procesos en ejecución en el sistema para ese instante.
 
-#+begin_src shell
+#+begin_src shell :exports both
 ps
 #+end_src
 
@@ -111,7 +111,7 @@ ps
 
 Con la opción ~-e~ o ~-A~ (/all processes/ o /todos los procesos/) podemos ver todos los procesos del sistema
 
-#+begin_src shell
+#+begin_src shell :exports both
 ps -e
 #+end_src
 
@@ -153,7 +153,7 @@ El comando ~kill~ se utiliza para enviar señales a procesos específicos, lo qu
 
 Para ver los tipos de señales disponibles se puede utilizar la opción ~-l~ del comando.
 
-#+begin_src shell
+#+begin_src shell :exports both
 kill -l
 #+end_src
 
