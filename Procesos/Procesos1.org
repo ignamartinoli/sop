@@ -14,9 +14,13 @@ Los procesos se pueden clasificar como:
 
 Para levantar un proceso en segundo plano hay que agregar el símbolo ~&~ después del comando, por ejemplo:
 
-#+BEGIN_SRC shell
-nano &
+#+BEGIN_SRC shell :async :exports both
+vi &
 #+END_SRC
+
+#+RESULTS:
+| [2] 31290
+| [2]  + suspended (tty output)  vi
 
 * ~top~
 
@@ -116,10 +120,10 @@ ps -e
 #+end_src
 
 #+RESULTS:
-|   PID | TTY   |     TIME | CMD                               |         |    |
-|     1 | ?     | 00:00:01 | init                              |         |    |
-|     2 | ?     | 00:00:00 | kthreadd                          |         |    |
-| ...
+|   PID | TTY   |     TIME | CMD                               |         |     |
+|     1 | ?     | 00:00:01 | init                              |         |     |
+|     2 | ?     | 00:00:00 | kthreadd                          |         |     |
+| ...   | ...   | ...      | ...                               | ...     | ... |
 
 *** ~aux~
 
@@ -183,8 +187,11 @@ Además, las señales de relevancia para nosotros son:
 
 Para enviar una señal a un proceso, se debe utilizar la familia de opciones ~-<N>~ donde =N= es el número de proceso.
 
-Por ejemplo, para terminar abruptamente un proceso (por ejemplo con PID =1234=) con el comando =SIGKILL=, se utiliza como opción el número correspondiente a esa señal (=9=), y como argumento el PID del proceso:
+Por ejemplo, para terminar abruptamente (con la señal =SIGKILL=) el proceso de ~vi~ que se creó al principio (con PID =31290=), se utiliza como opción el número correspondiente a esa señal (=9=), y como argumento el PID del proceso:
 
-#+begin_src shell
-kill -9 1234
+#+begin_src shell :exports both
+kill -9 31290
 #+end_src
+
+#+RESULTS:
+| [1]  + killed     vi
