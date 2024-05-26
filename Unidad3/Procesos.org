@@ -5,7 +5,7 @@ Los procesos (o *tareas*) son instancias de programas en ejecución.
 
 Cada proceso tiene asociado un identificador llamado *PID*.
 
-** Clasificación
+* Clasificación
 
 Los procesos se pueden clasificar como:
 
@@ -159,9 +159,9 @@ Además, las señales de relevancia para nosotros son:
 
 ** Uso
 
-Para enviar una señal a un proceso, se debe utilizar la familia de opciones ~-<N>~ donde =N= es el número de proceso.
+Para enviar una señal a un proceso, se debe utilizar la familia de opciones ~-<N>~ donde =N= es el número de señal.
 
-Por ejemplo, para terminar abruptamente (con la señal =SIGKILL=) el proceso de ~vi~ que se creó al principio (con PID =31290=), se utiliza como opción el número correspondiente a esa señal (=9=), y como argumento el PID del proceso:
+Por ejemplo, para terminar abruptamente (señal =SIGKILL=) el proceso de ~vi~ que se creó al principio (de PID =31290=), se utiliza como opción el número correspondiente a esa señal (=9=), y como argumento el PID del proceso:
 
 #+begin_src shell :session procesos :exports both
 kill -9 31290
