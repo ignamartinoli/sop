@@ -17,7 +17,6 @@
         - [ ] Enlazados
         - [ ] Tuberías
     - [ ] Atributos
-        - [ ] ...
     - [ ] I-nodos
     - [ ] Operaciones
         - [ ] Crear
