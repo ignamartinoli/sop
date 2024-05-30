@@ -1,6 +1,100 @@
-#+TITLE: Work in progress
-#+AUTHOR: tano
-
-* Unidad 3
-
-[[https://github.com/ignamartinoli/sop/blob/master/Unidad%203/Procesos.org][Procesos]]
+- [ ] Base
+    - [ ] `login`
+    - [ ] `logout`
+    - [ ] `exit`
+    - [ ] `shutdown`
+    - [ ] `clear`
+    - [ ] `date`
+    - [ ] `cal`
+    - [ ] `echo`
+    - [ ] `who`
+    - [ ] `man`
+- [ ] Manejo de archivos
+    - [ ] Tipos
+        - [ ] Regulares
+        - [ ] Directorios
+        - [ ] Especiales
+        - [ ] Enlazados
+        - [ ] Tuberías
+    - [ ] Atributos
+        - [ ] ...
+    - [ ] I-nodos
+    - [ ] Operaciones
+        - [ ] Crear
+            - [ ] `touch`
+            - [ ] `nano` o `vi`
+            - [ ] `>` o `>>`
+        - [ ] Copiar
+            - [ ] `cp`
+        - [ ] Visualizar atributos
+            - [ ] `ls -l`
+        - [ ] Visualizar contenidos
+            - [ ] `cat`
+            - [ ] `more`
+            - [ ] `less`
+            - [ ] `head`
+            - [ ] `tail`
+        - [ ] Renombrar o mover
+            - [ ] `mv`
+        - [ ] Eliminar
+            - [ ] `rm`
+- [ ] Filtros
+    - [ ] `wc`
+    - [ ] `grep`
+    - [ ] `sort`
+    - [ ] `find`
+    - [ ] `cut`
+    - [ ] `tr`
+- [ ] Manejo de directorios
+    - [ ] Directorios comunes
+        - [ ] `/bin`
+        - [ ] `/boot`
+        - [ ] `/dev`
+        - [ ] `/etc`
+        - [ ] `/home`
+        - [ ] `/lib`
+        - [ ] `/media`
+        - [ ] `/mnt`
+        - [ ] ...
+    - [ ] Directorio de conexión
+    - [ ] Directorio de trabajo
+    - [ ] Rutas
+        - [ ] Relativas
+        - [ ] Directorio raíz
+        - [ ] Absolutas
+    - [ ] Operaciones
+        - [ ] Moverse
+            - [ ] `pwd`
+            - [ ] `cd`
+        - [ ] Desenlazar
+            - [ ] `rm`
+        - [ ] Crear
+            - [ ] `mkdir`
+        - [ ] Eliminar
+            - [ ] `rmdir`
+            - [ ] `rm`
+        - [ ] Renombrar o mover
+            - [ ] `mv`
+        - [ ] Enlazar
+            - [ ] `ln`
+    - [ ] Enlaces
+        - [ ] Duros
+        - [ ] Simbólicos
+- [ ] Discos
+    - [ ] Particiones
+    - [ ] Operaciones
+        - [ ] `dd`
+        - [ ] `fdisk`
+        - [ ] `mkfs`
+        - [ ] `mount`
+        - [ ] `umount`
+- [ ] Procesos
+    - [ ] `top`
+    - [ ] `ps`
+    - [ ] `pstree`
+    - [ ] `kill`
+    - [ ] `nice`
+    - [ ] `renice`
+    - [ ] `fg`
+    - [ ] `bg`
+    - [ ] `jobs`
