@@ -49,15 +49,19 @@ El comando ~top~ permite controlar los procesos y las estadísticas del uso de l
 
 Es un valor predeterminado que el sistema operativo Linux asigna a todos los procesos de usuario cuando se crean.
 
+Suele ser =20= por defecto.
+
 *** Amabilidad
 
 Representado por la columna =NI=, es un valor entre =-20= y =19= que el usuario puede ajustar para influir en cierta medida en la prioridad efectiva de un proceso.
+
+Su valor por defecto suele ser =0=, pero algunos sistemas UNIX suelen ajustarlo a =5= solo para los procesos en segundo plano para asegurarse que no interfieran con el resto.
 
 *** Prioridad efectiva
 
 Representado por la columna =PR=, es un valor que determina cuánto tiempo de CPU recibe el proceso: valores más bajos indican mayor prioridad.
 
-Se calcula con la formula: =PR = 20 (prioridad base) + NI=.
+Se calcula con la formula =Prioridad efectiva = Prioridad base + Amabilidad= o =PR = PB + NI=.
 
 ** Estados comunes
 
