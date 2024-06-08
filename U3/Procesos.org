@@ -262,13 +262,13 @@ Para estar seguro de que la amabilidad se incremente o disminuya, en lugar de fi
 
 Por lo tanto, si se desea incrementar de =1= la amabilidad del proceso anterior, en lugar de fijarlo en el valor =1=, se puede utilizar el comando:
 
-#+begin_src shell :exports both
+#+begin_src shell :exports both :results output
 renice --relative 1 7266
 renice --relative 1 7266
 #+end_src
 
 #+RESULTS:
-| 7266 (process ID) old priority -10 | new priority -9 |
-| 7266 (process ID) old priority -9  | new priority -8 |
+: 7266 (process ID) old priority -10, new priority -9
+: 7266 (process ID) old priority -9, new priority -8
 
 Pueden observar que la amabilidad, en lugar de fijarse en el valor =1=, se incrementa dos veces.
