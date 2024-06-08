@@ -202,6 +202,8 @@ sleep 10
 sudo nice -n 10 sleep 10
 #+end_src
 
+Ahora controlamos los valores de amabilidad de ambos procesos:
+
 #+begin_src shell :exports both
 ps -o pid,ni,cmd -C sleep
 #+end_src
