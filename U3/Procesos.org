@@ -14,7 +14,7 @@ Los procesos se pueden clasificar como:
 
 Para levantar un proceso en segundo plano hay que agregar el símbolo ~&~ después del comando, por ejemplo:
 
-#+BEGIN_SRC shell :session procesos :async yes :exports both
+#+BEGIN_SRC shell :session clasificacion :async yes :exports both
 vi &
 #+END_SRC
 
@@ -59,7 +59,7 @@ Su valor por defecto suele ser =0=, pero algunos sistemas UNIX suelen ajustarlo 
 
 *** Prioridad efectiva
 
-Representado por la columna =PR=, es un valor que determina cuánto tiempo de CPU recibe el proceso: valores más bajos indican mayor prioridad.
+Representado por la columna =PR=, es un valor que determina cuánto tiempo de CPU recibe el proceso: *valores más bajos indican mayor prioridad*.
 
 Se calcula con la formula =Prioridad efectiva = Prioridad base + Amabilidad= o =PR = PB + NI=.
 
@@ -173,3 +173,42 @@ kill -9 31290
 
 #+RESULTS:
 : [1]  + killed     vi
+
+* ~nice~
+
+El comando ~nice~ se utiliza para iniciar un nuevo proceso con un valor de amabilidad (=NI=) ajustado, afectando su prioridad efectiva (=PR=).
+
+El valor de amabilidad a usar se especifica con la opción ~-n~, sino se usa el valor por defecto =10=.
+
+** Uso
+
+Para iniciar un proceso con un valor de amabilidad de =-10=:
+
+#+begin_src shell
+sudo nice -n -10 comando
+#+end_src
+
+Se requiere permisos de superusuario para establecer valores de amabilidad negativos, dado que se está incrementando la prioridad del proceso, lo cual generalmente está restringido a usuarios con privilegios administrativos.
+
+** Prueba
+
+Para comprobarlo, podemos lanzar dos proceso iguales y utilizar el comando ~nice~ solo en uno:
+
+#+begin_src shell :session nice1 :async yes :results none
+sleep 10
+#+end_src
+
+#+begin_src shell :session nice2 :async yes :results none
+doas nice -n 10 sleep 10
+#+end_src
+
+#+begin_src shell
+ps -o pid,ni,cmd -C sleep
+#+end_src
+
+#+RESULTS:
+|   PID | NI | CMD   |     |
+| 32438 |  0 | sleep |  10 |
+| 32468 | 10 | sleep |  10 |
+
+Como observamos en la segunda columna, el primer proceso fue lanzado con la amabilidad por defecto =0=, mientras que el segundo con la amabilidad especificada de =10=.
