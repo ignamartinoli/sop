@@ -4,7 +4,7 @@
 
 Para tener el repositorio en local, alcanza con correr el comando
 
-```sh
+```bash
 git clone https://github.com/ignamartinoli/sop.git
 ```
 
