@@ -202,7 +202,7 @@ sleep 10
 sudo nice -n 10 sleep 10
 #+end_src
 
-#+begin_src shell
+#+begin_src shell :exports both
 ps -o pid,ni,cmd -C sleep
 #+end_src
 
