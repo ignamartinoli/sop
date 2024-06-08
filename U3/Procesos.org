@@ -378,8 +378,7 @@ vi &
 #+end_src
 
 #+RESULTS:
-: [1]+  Stopped                 vi
-: [2] 14926
+: [1] 15050
 
 Para traerlo de vuelta a primer plano:
 
@@ -388,9 +387,107 @@ bg %1
 #+end_src
 
 #+RESULTS:
-: [2]+  Stopped                 vi
-: [1]- vi &
+: [1]+ vi &
 
 * ~at~
+
+El comando ~at~ se utiliza para ejecutar comandos en momentos específicos en el futuro.
+
+La sintaxis básica del comando es:
+
+#+begin_src shell
+at tiempo
+#+end_src
+
+Donde =tiempo= es la hora en la que se desea que se ejecute el comando. Los especificaciones de tiempo pueden ser bastante complejas.
+
+Luego, se pedirá de ingresar los comandos que se desean ejecutar.
+
+** Formatos de tiempo
+
+La forma más básica de ingresar un tiempo es a través del formato =HH:MM=:
+
+#+begin_src shell
+at 15:00
+#+end_src
+
+Lo mismo también se puede escribir utilizando los sufijos =AM= o =PM= (y sus formas en minúsculas), por ejemplo:
+
+#+begin_src shell
+at 3 PM
+#+end_src
+
+También hay soporte para los momentos de la jornada, usando:
+
+- =midnight= para medianoche
+- =noon= para el mediodía
+- =teatime= que es equivalente a las =4 PM=
+
+#+begin_src shell
+at noon
+#+end_src
+
+Si se desea especificar un día se puede utilizar la forma =MONTH-NAME DAY=, donde =MONTH-NAME= es el nombre del mes abreviado en inglés, y =DAY= es el número de día:
+
+#+begin_src shell
+at Jan 3
+#+end_src
+
+Son igualmente validos los patrones:
+
+- =MMDD[CC]YY=
+- =MM/DD/[CC]YY=
+- =DD.MM.[DD]YY=
+- =[CC]YY-MM-DD=
+
+Donde los corchetes delimitan caracteres opcionales y las letras corresponden a:
+
+- =D= por el día
+- =M= por el mes
+- =C= por las primeras dos cifras del año (opcional)
+- =Y= por las últimas dos cifras del año
+
+#+begin_src shell
+at 12/03/2050
+#+end_src
+
+Encima se puede declarar el tiempo como =MOMENT + COUNT TIME-UNITS=, donde =MOMENT= es un punto en el tiempo, =COUNT= es un número y =TIME-UNITS= puede ser:
+
+- =minutes= para minutos
+- =hours= para las horas
+- =days= para los días
+- =weeks= para las semanas
+
+También se aceptan sus versiones en singular sin la /s/ final:
+
+#+begin_src shell
+at now + 1 minute
+#+end_src
+
+Por ultimo, pueden observar que hay sufijos de tiempo, los cuales son:
+
+- =now= para ahora
+- =today= para hoy
+- =tomorrow= para mañana
+
+** Ejemplos
+
+Para correr un trabajo a las 4 de la tarde, de hoy a 3 días, se usa:
+
+#+begin_src shell
+at 4pm + 3 days
+#+end_src
+
+Para correr un trabajo a las 10 de la mañana el 6 de julio, se usa:
+
+#+begin_src shell
+at 10am Jul 31
+#+end_src
+
+Para correr un trabajo a la 1 de la mañana de mañana, se usa:
+
+#+begin_src shell
+at 1am tomorrow
+#+end_src
 
 * ~crontab~

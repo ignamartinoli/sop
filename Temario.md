@@ -99,5 +99,6 @@
         - [ ] `bg`
         - [ ] `jobs`
     - [ ] Planificación
-        - [ ] `crontab`
         - [ ] `at`
+        - [ ] `atq`
+        - [ ] `crontab`
