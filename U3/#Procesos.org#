@@ -378,8 +378,7 @@ vi &
 #+end_src
 
 #+RESULTS:
-: [1]+  Stopped                 vi
-: [2] 14926
+: [1] 15050
 
 Para traerlo de vuelta a primer plano:
 
@@ -388,8 +387,7 @@ bg %1
 #+end_src
 
 #+RESULTS:
-: [2]+  Stopped                 vi
-: [1]- vi &
+: [1]+ vi &
 
 * ~at~
 
