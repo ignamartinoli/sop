@@ -224,29 +224,31 @@ El comando ~renice~ se utiliza para cambiar la amabilidad (y de consecuencia la 
 Para cambiar la amabilidad de un proceso a =10=:
 
 #+begin_src shell
-sudo renice 10 pid
+renice 10 pid
 #+end_src
+
+Como con el comando ~nice~, en le comando ~renice~ para incrementar la prioridad de un proceso, o sea reducir su amabilidad, se requieren permisos de superusuario.
 
 ** Prueba
 
 
 Para comprobar el funcionamiento, podemos lanzar una instancia de un proceso en segundo plano:
 
-#+begin_src shell :session renice1 :async yes :exports both
+#+begin_src shell :session renice :async yes :exports both
 vi &
 #+end_src
 
 #+RESULTS:
-: [1] 6200
+: [1] 7266
 
-Luego podemos modificar su prioridad a =10=.
+Luego podemos modificar su prioridad a =-10=.
 
-#+begin_src shell :exports both
-renice 10 6200
+#+begin_src shell :exports both :session renice :async yes
+sudo renice -10 7266
 #+end_src
 
 #+RESULTS:
-| 6200 (process ID) old priority 0 | new priority 10 |
+: 7266 (process ID) old priority 0, new priority -10
 
 ** Relativo
 
@@ -258,15 +260,15 @@ Por lo tanto el comando ~renice~, por defecto va a fijar la amabilidad directame
 
 Para estar seguro de que la amabilidad se incremente o disminuya, en lugar de fijarla, se puede utilizar la opción ~--relative~.
 
-Por lo tanto, si se desea decrementar de =10= la amabilidad del proceso =1234=, en lugar de fijarlo en el valor =-10=, se puede utilizar el comando:
+Por lo tanto, si se desea incrementar de =1= la amabilidad del proceso anterior, en lugar de fijarlo en el valor =1=, se puede utilizar el comando:
 
 #+begin_src shell :exports both
-renice --relative 1 6200
-renice --relative 1 6200
+renice --relative 1 7266
+renice --relative 1 7266
 #+end_src
 
 #+RESULTS:
-| 6200 (process ID) old priority 10 | new priority 14 |
-| 6200 (process ID) old priority 12 | new priority 18 |
+| 7266 (process ID) old priority -10 | new priority -9 |
+| 7266 (process ID) old priority -9  | new priority -8 |
 
 Pueden observar que la amabilidad, en lugar de fijarse en el valor =1=, se incrementa dos veces.
