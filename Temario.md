@@ -88,12 +88,16 @@
         - [ ] `mount`
         - [ ] `umount`
 - [ ] Procesos
-    - [ ] `top`
-    - [ ] `ps`
-    - [ ] `pstree`
-    - [ ] `kill`
-    - [ ] `nice`
-    - [ ] `renice`
-    - [ ] `fg`
-    - [ ] `bg`
-    - [ ] `jobs`
+    - [ ] Administración
+        - [ ] `top`
+        - [ ] `ps`
+        - [ ] `pstree`
+        - [ ] `kill`
+        - [ ] `nice`
+        - [ ] `renice`
+        - [ ] `fg`
+        - [ ] `bg`
+        - [ ] `jobs`
+    - [ ] Planificación
+        - [ ] `crontab`
+        - [ ] `at`
