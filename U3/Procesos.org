@@ -214,3 +214,59 @@ ps -o pid,ni,cmd -C sleep
 | 32468 | 10 | sleep |  10 |
 
 Como observamos en la segunda columna, el primer proceso fue lanzado con la amabilidad por defecto =0=, mientras que el segundo con la amabilidad especificada de =10=.
+
+* ~renice~
+
+El comando ~renice~ se utiliza para cambiar la amabilidad (y de consecuencia la prioridad) de un comando que ya está en ejecución, sin tener que reiniciarlo.
+
+** Uso
+
+Para cambiar la amabilidad de un proceso a =10=:
+
+#+begin_src shell
+sudo renice 10 pid
+#+end_src
+
+** Prueba
+
+
+Para comprobar el funcionamiento, podemos lanzar una instancia de un proceso en segundo plano:
+
+#+begin_src shell :session renice1 :async yes :exports both
+vi &
+#+end_src
+
+#+RESULTS:
+: [1] 6200
+
+Luego podemos modificar su prioridad a =10=.
+
+#+begin_src shell :exports both
+renice 10 6200
+#+end_src
+
+#+RESULTS:
+| 6200 (process ID) old priority 0 | new priority 10 |
+
+** Relativo
+
+Por razones históricas, la mayoría de las implementaciones de ~renice~ hoy *no* siguen la especificación POSIX.
+
+Ésta declara que el comando ~renice~ debe cambiar la amabilidad de manera *relativa* a su valor actual.
+
+Por lo tanto el comando ~renice~, por defecto va a fijar la amabilidad directamente como el valor proporcionado por el usuario.
+
+Para estar seguro de que la amabilidad se incremente o disminuya, en lugar de fijarla, se puede utilizar la opción ~--relative~.
+
+Por lo tanto, si se desea decrementar de =10= la amabilidad del proceso =1234=, en lugar de fijarlo en el valor =-10=, se puede utilizar el comando:
+
+#+begin_src shell :exports both
+renice --relative 1 6200
+renice --relative 1 6200
+#+end_src
+
+#+RESULTS:
+| 6200 (process ID) old priority 10 | new priority 14 |
+| 6200 (process ID) old priority 12 | new priority 18 |
+
+Pueden observar que la amabilidad, en lugar de fijarse en el valor =1=, se incrementa dos veces.
