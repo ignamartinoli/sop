@@ -1,0 +1,23 @@
+#+TITLE: Sistemas Operativos
+
+* Dependencias
+
+Si el comando =git= no se encuentra en el sistema, en *Ubuntu* se puede instalar con el comando:
+
+#+BEGIN_SRC shell
+sudo apt install git
+#+END_SRC
+
+* Descarga
+
+El repositorio se puede descargar en local con el comando:
+
+#+BEGIN_SRC sh
+git clone https://github.com/ignamartinoli/sop.git
+#+END_SRC
+
+Se creará un directorio llamado =sop= con todo el material.
+
+*  Actualización
+
+Ya voy a hacerlo, si me olvido háganme acordar.
