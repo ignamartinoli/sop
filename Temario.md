@@ -88,6 +88,7 @@
         - [ ] `mount`
         - [ ] `umount`
 - [ ] Procesos
+    - [ ] Tuberías
     - [ ] Administración
         - [ ] `top`
         - [ ] `ps`
