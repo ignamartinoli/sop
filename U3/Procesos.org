@@ -328,7 +328,7 @@ jobs -s
 #+RESULTS:
 : [1]+  Stopped                 vi
 
-* ~fg~ y ~bg~
+* ~fg~
 
 El comando ~fg~ permite mover un trabajo suspendido en segundo plano al primer plano de la sesión del /shell/ actual.
 
