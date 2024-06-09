@@ -490,4 +490,65 @@ Para correr un trabajo a la 1 de la mañana de mañana, se usa:
 at 1am tomorrow
 #+end_src
 
+* ~atq~
+
+El comando ~atq~ (~at~ /queue/ o cola de ~at~) se usa para ver las tareas programadas con el comando ~at~:
+
+#+begin_src shell
+atq
+#+end_src
+
 * ~crontab~
+
+El comando ~crontab~ se utiliza para programar la ejecución *periódica* de tareas.
+
+Con la opción ~-e~, ~crontab~ permite seleccionar un editor de texto (si ya no esta configurado), y con el mismo permite al usuario editar la planificación de las tareas.
+
+#+begin_src shell
+crontab -e
+#+end_src
+
+La ejecución de estas tareas queda a cargo de un demonio, llamado =cron=, que cada minuto se despierta y controla el archivo donde está definida la planificación (normalmente ubicado debajo de =/etc=), y si se cumplen las condiciones establecidas por el usuario entonces se ejecuta la tarea correspondiente.
+
+** Formato
+
+Una planificación tiene el siguiente formato:
+
+#+begin_src
+ * * * * * comando
+ │ │ │ │ │
+ │ │ │ │ │
+ │ │ │ │ └───── Día de la semana (0 - 7) (Domingo es 0 o 7)
+ │ │ │ └──────── Mes (1 - 12)
+ │ │ └────────── Día del mes (1 - 31)
+ │ └──────────── Hora (0 - 23)
+ └────────────── Minuto (0 - 59)
+#+end_src
+
+Todos los campos deben estar presentes.
+
+** Uso
+
+Para ejecutar un comando todos los días a las 2 y media de la mañana:
+
+#+begin_src
+ 30 2 * * * comando
+#+end_src
+
+Para ejecutar un comando cada 15 minutos:
+
+#+begin_src
+ */15 * * * * comando
+#+end_src
+
+Para ejecutar un comando todos los lunes a las 5 de la tarde:
+
+#+begin_src
+ 0 17 * * 1 comando
+#+end_src
+
+Para ejecutar un comando el primer día de cada mes a medianoche:
+
+#+begin_src
+ 0 0 1 * * comando
+#+end_src
