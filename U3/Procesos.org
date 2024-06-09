@@ -29,18 +29,18 @@ El comando ~top~ permite controlar los procesos y las estadísticas del uso de l
 
 ** Columnas
 
-- =PID= :: identificador de proceso (/Process ID/)
-- =USER= :: usuario dueño del proceso
-- =PR= :: prioridad del proceso (/Priority/)
-- =NI= :: valor de amabilidad del proceso (/Niceness/)
-- =VIRT= :: memoria virtual total usada por el proceso (/Virtual Memory/)
-- =RES= :: memoria física actualmente usada por el proceso (/Resident Memory/)
-- =SHR= :: memoria compartida usada por el proceso (/Shared/)
-- =S= :: estado del proceso (/State/)
-- =%CPU= :: porcentaje de CPU usado por el proceso
-- =%MEM= :: porcentaje de memoria física usada por el proceso
-- =TIME+= :: tiempo total de CPU utilizado por el proceso desde que inició
-- =COMMAND= :: comando que inició el proceso 
+- =PID= para el identificador de proceso (/Process ID/)
+- =USER= para el usuario dueño del proceso
+- =PR= para la prioridad del proceso (/Priority/)
+- =NI= para el valor de amabilidad del proceso (/Niceness/)
+- =VIRT= para la memoria virtual total usada por el proceso (/Virtual Memory/)
+- =RES= para la memoria física actualmente usada por el proceso (/Resident Memory/)
+- =SHR= para la memoria compartida usada por el proceso (/Shared/)
+- =S= para el estado del proceso (/State/)
+- =%CPU= para el porcentaje de CPU usado por el proceso
+- =%MEM= para el porcentaje de memoria física usada por el proceso
+- =TIME+= para el tiempo total de CPU utilizado por el proceso desde que inició
+- =COMMAND= para el comando que inició el proceso 
 
 ** Prioridades de procesos
 
@@ -66,12 +66,12 @@ Se calcula con la formula =Prioridad efectiva = Prioridad base + Amabilidad= o =
 
 Los códigos de estados comunes (que podemos encontrar en el comando ~top~) son:
 
-- =R= :: ejecutándose (=Running=)
-- =S= :: durmiendo (=Sleeping=)
-- =D= :: sueño ininterrumpible por operaciones de E/S (=Disk sleep=)
-- =Z= :: zombi (=Zombie=)
-- =T= :: suspendido (=Terminated=)
-- =I= :: inactivo (=Idle=) 
+- =R= por ejecutándose (=Running=)
+- =S= por durmiendo (=Sleeping=)
+- =D= por sueño ininterrumpible por operaciones de E/S (=Disk sleep=)
+- =Z= por zombi (=Zombie=)
+- =T= por suspendido (=Terminated=)
+- =I= por inactivo (=Idle=) 
 
 * ~ps~
 
