@@ -93,7 +93,7 @@ ps
 Con la opción ~-e~ o ~-A~ (/all processes/ o /todos los procesos/) podemos ver todos los procesos del sistema
 
 #+begin_src shell :exports both
-ps -e
+ps -e | head -1
 #+end_src
 
 #+RESULTS:
@@ -106,8 +106,8 @@ ps -e
 
 Con la opción ~aux~ podemos ver todos los procesos con detalles adicionales, incluyendo procesos no asociados con una terminal.
 
-#+begin_src shell
-ps aux
+#+begin_src shell :exports both
+ps aux | head -l
 #+end_src
 
 Es una combinación de los indicadores:
