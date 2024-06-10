@@ -9,8 +9,8 @@ Cada proceso tiene asociado un identificador llamado *PID*.
 
 Los procesos se pueden clasificar como:
 
-- Foreground :: o *primer plano*, son los procesos que tienen el control directo de una terminal, permitiendo que el usuario interactúe en tiempo real
-- Background :: o *segundo plano*, son los procesos que se ejecutan independientemente de la terminal, dejándola libre para aceptar otro comandos
+- *Foreground* o *primer plano*, son los procesos que tienen el control directo de una terminal, permitiendo que el usuario interactúe en tiempo real
+- *Background* o *segundo plano*, son los procesos que se ejecutan independientemente de la terminal, dejándola libre para aceptar otro comandos
 
 Para levantar un proceso en segundo plano hay que agregar el símbolo ~&~ después del comando, por ejemplo:
 
@@ -112,9 +112,9 @@ ps aux
 
 Es una combinación de los indicadores:
 
-- ~a~ :: muestra todos los procesos asociados con cualquier terminal
-- ~u~ :: muestra informacion detallada sobre los procesos, incluyendo el nombre del usuario propietario
-- ~x~ :: muestra procesos que no están asociados con ninguna terminal
+- ~a~, que muestra todos los procesos asociados con cualquier terminal
+- ~u~, que muestra informacion detallada sobre los procesos, incluyendo el nombre del usuario propietario
+- ~x~, que muestra procesos que no están asociados con ninguna terminal
 
 * ~pstree~
 
@@ -157,8 +157,8 @@ Por defecto ~kill~ utiliza la señal =SIGTERM= (=15=) que permite al proceso una
 
 Además, las señales de relevancia para nosotros son:
 
-- =SIGINT= :: para interrumpir procesos (=2=)
-- =SIGKILL= :: para forzar la terminación de procesos (=9=)
+- =SIGINT= para interrumpir procesos (=2=)
+- =SIGKILL= para forzar la terminación de procesos (=9=)
 
 ** Uso
 
