@@ -311,11 +311,14 @@ jobs -l
 
 Con la opción ~-r~ podemos ver los procesos que se encuentran en estado de ejecución (=Running=).
 
-#+begin_src shell
+#+begin_src shell :session jobs :async yes :exports both
+sleep 10 &
 jobs -r
 #+end_src
 
 #+RESULTS:
+: [1] 28383
+: [1]+  Running                 sleep 10 &
 
 *** ~-s~
 
@@ -481,7 +484,7 @@ at 4pm + 3 days
 Para correr un trabajo a las 10 de la mañana el 6 de julio, se usa:
 
 #+begin_src shell
-at 10am Jul 31
+at 10am Jul 6
 #+end_src
 
 Para correr un trabajo a la 1 de la mañana de mañana, se usa:
