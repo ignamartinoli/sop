@@ -92,23 +92,25 @@ ps
 
 Con la opción ~-e~ o ~-A~ (/all processes/ o /todos los procesos/) podemos ver todos los procesos del sistema
 
-#+begin_src shell :exports both
-ps -e | head -1
+#+begin_src shell :exports both :results table
+ps -e | head -2
 #+end_src
 
 #+RESULTS:
-|   PID | TTY   |     TIME | CMD                               |         |     |
-|     1 | ?     | 00:00:01 | init                              |         |     |
-|     2 | ?     | 00:00:00 | kthreadd                          |         |     |
-| ...   | ...   | ...      | ...                               | ...     | ... |
+| PID | TTY |     TIME | CMD  |
+|   1 | ?   | 00:00:00 | init |
 
 *** ~aux~
 
 Con la opción ~aux~ podemos ver todos los procesos con detalles adicionales, incluyendo procesos no asociados con una terminal.
 
-#+begin_src shell :exports both
-ps aux | head -l
+#+begin_src shell :exports both :results table
+ps aux | head -2
 #+end_src
+
+#+RESULTS:
+| USER | PID | %CPU | %MEM |  VSZ |  RSS | TTY | STAT | START | TIME | COMMAND |     |
+| root |   1 |  0.0 |  0.0 | 2512 | 1664 | ?   | Ss   | 18:02 | 0:00 | init    | [3] |
 
 Es una combinación de los indicadores:
 
@@ -205,7 +207,7 @@ sleep 10
 #+end_src
 
 #+begin_src shell :session nice2 :async yes :results none
-sudo nice -n 10 sleep 10
+nice -n 10 sleep 10
 #+end_src
 
 Ahora controlamos los valores de amabilidad de ambos procesos:
@@ -521,7 +523,7 @@ Una planificación tiene el siguiente formato:
  * * * * * comando
  │ │ │ │ │
  │ │ │ │ │
- │ │ │ │ └───── Día de la semana (0 - 7) (Domingo es 0 o 7)
+ │ │ │ │ └─────- Día de la semana (0 - 7) (Domingo es 0 o 7)
  │ │ │ └──────── Mes (1 - 12)
  │ │ └────────── Día del mes (1 - 31)
  │ └──────────── Hora (0 - 23)
