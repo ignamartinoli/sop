@@ -175,7 +175,7 @@ vi &
 
 Por ejemplo, para terminar abruptamente (señal =SIGKILL=) el proceso creado (de PID =11734=), se utiliza como opción el número correspondiente a esa señal (=9=), y como argumento el PID del proceso:
 
-#+begin_src shell :session background :exports both
+#+begin_src shell :session kill :async yes :exports both
 kill -9 11734
 #+end_src
 
