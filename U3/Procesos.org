@@ -90,7 +90,7 @@ ps
 
 *** ~-e~ o ~-A~
 
-Con la opción ~-e~ o ~-A~ (/all processes/ o /todos los procesos/) podemos ver todos los procesos del sistema
+Con la opción ~-e~ o ~-A~ ("all processes" o "todos los procesos") podemos ver todos los procesos del sistema
 
 #+begin_src shell :exports both :results table
 ps -e | head -2
@@ -497,10 +497,18 @@ at 1am tomorrow
 
 * ~atq~
 
-El comando ~atq~ (~at~ /queue/ o cola de ~at~) se usa para ver las tareas programadas con el comando ~at~:
+El comando ~atq~ ("~at~ queue" o "cola de ~at~") se usa para ver las tareas programadas con el comando ~at~:
 
 #+begin_src shell
 atq
+#+end_src
+
+* ~atrm~
+
+El comando ~atrm~ ("~at~ remove" o "remover de ~at~") se usa para remover una planificación de ~at~ antes de que haya ejecutado, utilizando su número de tarea.
+
+#+begin_src shell
+atrm 1
 #+end_src
 
 * ~crontab~
