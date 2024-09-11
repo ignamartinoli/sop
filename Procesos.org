@@ -531,7 +531,7 @@ Una planificación tiene el siguiente formato:
  * * * * * comando
  │ │ │ │ │
  │ │ │ │ │
- │ │ │ │ └─────- Día de la semana (0 - 7) (Domingo es 0 o 7)
+ │ │ │ │ └────── Día de la semana (0 - 7) (Domingo es 0 o 7)
  │ │ │ └──────── Mes (1 - 12)
  │ │ └────────── Día del mes (1 - 31)
  │ └──────────── Hora (0 - 23)
