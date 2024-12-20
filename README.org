@@ -1,4 +1,4 @@
-#+TITLE: Sistemas Operativos
+#+TITLE: 🐧 Sistemas Operativos
 
 * Dependencias
 
